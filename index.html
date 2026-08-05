@@ -122,7 +122,7 @@
     color:var(--blue-deep);
   }
   .branch-box .pin{color:var(--blue);font-size:18px;}
-  input[type=tel]{
+  input[type=tel],input[type=text]{
     width:100%;
     border:1.5px solid var(--line);
     border-radius:10px;
@@ -132,7 +132,7 @@
     color:var(--ink);
     background:#fff;
   }
-  input[type=tel]:focus{outline:none;border-color:var(--blue);}
+  input[type=tel]:focus,input[type=text]:focus{outline:none;border-color:var(--blue);}
   select{
     width:100%;
     border:1.5px solid var(--blue-tint-2);
@@ -337,6 +337,11 @@
       <textarea id="improve" maxlength="500" data-i18n-ph="improvePh" placeholder="Your suggestions..."></textarea>
     </div>
 
+    <div class="field">
+      <label class="label"><span data-i18n="q7">&#128079; 7. If you'd like to appreciate our staff member, please enter their name. Who served you today?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
+      <input type="text" id="staffName" maxlength="60" data-i18n-ph="staffPh" placeholder="Staff member's name" autocomplete="off">
+    </div>
+
     <button type="submit" class="submit" id="submitBtn" data-i18n="submit">Submit Feedback</button>
     <div class="error" id="errMsg"></div>
   </form>
@@ -377,6 +382,8 @@ const I18N = {
     q4: "❤️ 4. Would you visit us again?",
     q5: "\u{1F44D} 5. Would you recommend us to your family and friends?",
     q6: "\u{1F4AC} 6. How can we improve our service?",
+    q7: "\u{1F44F} 7. If you'd like to appreciate our staff member, please enter their name. Who served you today?",
+    staffPh: "Staff member's name",
     optional: "(optional)",
     improvePh: "Your suggestions...",
     tapToRate: "Tap to rate",
@@ -413,6 +420,8 @@ const I18N = {
     q4: "❤️ 4. هل ستزورنا مرة أخرى؟",
     q5: "\u{1F44D} 5. هل تنصح عائلتك وأصدقاءك بالتعامل معنا؟",
     q6: "\u{1F4AC} 6. كيف يمكننا تحسين خدمتنا؟",
+    q7: "\u{1F44F} 7. إذا كنت ترغب في شكر أحد موظفينا، يرجى كتابة اسمه. من قام بخدمتك اليوم؟",
+    staffPh: "اسم الموظف",
     optional: "(اختياري)",
     improvePh: "اقتراحاتكم...",
     tapToRate: "اضغط للتقييم",
@@ -449,6 +458,8 @@ const I18N = {
     q4: "❤️ 4. क्या आप हमारे पास फिर आएँगे?",
     q5: "\u{1F44D} 5. क्या आप अपने परिवार और दोस्तों को हमारी सिफारिश करेंगे?",
     q6: "\u{1F4AC} 6. हम अपनी सेवा कैसे बेहतर बना सकते हैं?",
+    q7: "\u{1F44F} 7. यदि आप हमारे कर्मचारी की सराहना करना चाहते हैं, तो कृपया उनका नाम लिखें। आज आपकी सेवा किसने की?",
+    staffPh: "कर्मचारी का नाम",
     optional: "(वैकल्पिक)",
     improvePh: "आपके सुझाव...",
     tapToRate: "रेट करने के लिए टैप करें",
@@ -458,8 +469,8 @@ const I18N = {
     submit: "फीडबैक भेजें",
     submitting: "भेजा जा रहा है...",
     errBranch: "कृपया अपनी शाखा चुनें।",
-    errCivil: "कृपया ১২ अंकों की सही सिविल आईडी दर्ज करें।",
-    errMobile: "कृपया ৮ अंकों का सही मोबाइल नंबर दर्ज करें।",
+    errCivil: "कृपया 12 अंकों की सही सिविल आईडी दर्ज करें।",
+    errMobile: "कृपया 8 अंकों का सही मोबाइल नंबर दर्ज करें।",
     errStars: "कृपया भेजने से पहले प्रश्न 1 और 2 को रेट करें।",
     errChips: "कृपया भेजने से पहले प्रश्न 3, 4 और 5 के उत्तर दें।",
     errSubmit: "भेजा नहीं जा सका। कृपया कनेक्शन जाँचें और पुनः प्रयास करें।",
@@ -485,6 +496,8 @@ const I18N = {
     q4: "❤️ 4. আপনি কি আবার আমাদের কাছে আসবেন?",
     q5: "\u{1F44D} 5. আপনি কি পরিবার ও বন্ধুদের আমাদের কথা বলবেন?",
     q6: "\u{1F4AC} 6. আমরা কীভাবে আমাদের সেবা আরও ভালো করতে পারি?",
+    q7: "\u{1F44F} 7. আপনি যদি আমাদের কর্মীকে প্রশংসা করতে চান, তবে তাঁর নাম লিখুন। আজ কে আপনাকে সেবা দিয়েছেন?",
+    staffPh: "কর্মীর নাম",
     optional: "(ঐচ্ছিক)",
     improvePh: "আপনার পরামর্শ...",
     tapToRate: "রেট করতে ট্যাপ করুন",
@@ -521,6 +534,8 @@ const I18N = {
     q4: "❤️ 4. ඔබ නැවත අප වෙත එනවාද?",
     q5: "\u{1F44D} 5. ඔබේ පවුලේ අයට සහ මිතුරන්ට අපව නිර්දේශ කරනවාද?",
     q6: "\u{1F4AC} 6. අපේ සේවාව වැඩිදියුණු කරන්නේ කෙසේද?",
+    q7: "\u{1F44F} 7. අපගේ සේවකයෙකුට ප්‍රශංසා කිරීමට ඔබ කැමති නම්, ඔහුගේ/ඇයගේ නම ලියන්න. අද ඔබට සේවය කළේ කවුද?",
+    staffPh: "සේවකයාගේ නම",
     optional: "(අත්‍යවශ්‍ය නොවේ)",
     improvePh: "ඔබේ යෝජනා...",
     tapToRate: "ඇගයීමට තට්ටු කරන්න",
@@ -765,7 +780,8 @@ form.addEventListener("submit", async (e) => {
     speed: choices.speed,
     visitAgain: choices.visit,
     recommend: choices.recommend,
-    improve: document.getElementById("improve").value.trim()
+    improve: document.getElementById("improve").value.trim(),
+    staffName: document.getElementById("staffName").value.trim()
   };
 
   try{
