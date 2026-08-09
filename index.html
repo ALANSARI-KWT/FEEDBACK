@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEC Customer Feedback</title>
+<title>Al Ansari Exchange Customer Feedback</title>
 <style>
   :root{
-    --blue:#0B4EA2;
-    --blue-dark:#083D80;
-    --blue-deep:#062F63;
-    --blue-tint:#E9F1FA;
-    --blue-tint-2:#D7E6F7;
-    --ink:#122A4B;
-    --muted:#5A6B85;
-    --line:#DCE6F2;
-    --bg:#F2F6FB;
+    --blue:#2B3990;
+    --blue-dark:#232E75;
+    --blue-deep:#1A2258;
+    --blue-tint:#EBEDF8;
+    --blue-tint-2:#D6DAF0;
+    --ink:#1C2140;
+    --muted:#5F6480;
+    --line:#DEE1F0;
+    --bg:#F3F4FA;
     --card:#FFFFFF;
     --ok:#1B8A4C;
     --warn:#B3261E;
@@ -92,7 +92,7 @@
     background:var(--card);
     border:1px solid var(--line);
     border-radius:16px;
-    box-shadow:0 10px 30px rgba(11,78,162,.12);
+    box-shadow:0 10px 30px rgba(43,57,144,.12);
     margin:-34px 0 40px;
     padding:26px 22px 28px;
   }
@@ -106,8 +106,9 @@
     margin-bottom:8px;
     line-height:1.5;
   }
+  html[lang=en] .label{text-transform:uppercase;letter-spacing:.4px;}
   .label .req{color:var(--warn);}
-  .label .opt{font-weight:500;color:var(--muted);}
+  .label .opt{font-weight:500;color:var(--muted);text-transform:none;}
   .branch-box{
     display:flex;
     align-items:center;
@@ -121,7 +122,7 @@
     color:var(--blue-deep);
   }
   .branch-box .pin{color:var(--blue);font-size:18px;}
-  input[type=tel],input[type=text]{
+  input[type=tel]{
     width:100%;
     border:1.5px solid var(--line);
     border-radius:10px;
@@ -131,7 +132,7 @@
     color:var(--ink);
     background:#fff;
   }
-  input[type=tel]:focus,input[type=text]:focus{outline:none;border-color:var(--blue);}
+  input[type=tel]:focus{outline:none;border-color:var(--blue);}
   select{
     width:100%;
     border:1.5px solid var(--blue-tint-2);
@@ -158,7 +159,7 @@
     border-radius:10px;
     background:#fff;
     font-size:26px;
-    color:#C6D3E4;
+    color:#C9CDE4;
     cursor:pointer;
     transition:transform .08s ease,color .12s ease,border-color .12s ease,background .12s ease;
   }
@@ -169,30 +170,30 @@
     background:var(--blue-tint);
   }
   .stars button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
-  .chips{
-    display:flex;
+  .nps{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
     gap:8px;
   }
-  .chips button{
-    flex:1;
-    padding:13px 6px;
+  .nps button{
+    padding:11px 0;
     border:1.5px solid var(--line);
     border-radius:10px;
     background:#fff;
     font:inherit;
-    font-size:14.5px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     color:var(--ink);
     cursor:pointer;
     transition:transform .08s ease,border-color .12s ease,background .12s ease;
   }
-  .chips button:active{transform:scale(.95);}
-  .chips button.on{
+  .nps button:active{transform:scale(.93);}
+  .nps button.on{
     border-color:var(--blue);
-    background:var(--blue-tint);
-    color:var(--blue-deep);
+    background:var(--blue);
+    color:#fff;
   }
-  .chips button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .nps button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
   .rate-hint{
     margin-top:7px;
     font-size:13px;
@@ -228,7 +229,7 @@
   }
   .submit:active{transform:scale(.985);}
   .submit:hover{filter:brightness(1.08);}
-  .submit:disabled{background:#B9C6D9;cursor:not-allowed;}
+  .submit:disabled{background:#BCC1DB;cursor:not-allowed;}
   .error{
     margin-top:12px;
     font-size:13.5px;
@@ -249,7 +250,7 @@
     color:#fff;
     font-size:38px;
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 18px rgba(11,78,162,.35);
+    box-shadow:0 6px 18px rgba(43,57,144,.35);
   }
   .success h2{font-size:21px;margin-bottom:8px;color:var(--blue-deep);}
   .success p{font-size:14.5px;color:var(--muted);line-height:1.6;}
@@ -278,9 +279,9 @@
       <button type="button" id="langSi">සිංහල</button>
     </div>
   </div>
-  <img class="logo" src="bec-logo.png" alt="BEC — Bahrain Exchange Company">
-  <h1 data-i18n="title">Thank you for using BEC</h1>
-  <p data-i18n="subtitle">We appreciate your trust in Bahrain Exchange Company.<br>Please take a moment to tell us about your visit.</p>
+  <img class="logo" src="alansari-logo.png" alt="Al Ansari Exchange — الأنصاري للصرافة">
+  <h1 data-i18n="title">Thank you for using Al Ansari Exchange</h1>
+  <p data-i18n="subtitle">We appreciate your trust in Al Ansari Exchange.<br>Please take a moment to tell us about your visit.</p>
 </div>
 
 <div class="card">
@@ -305,39 +306,38 @@
     </div>
 
     <div class="field">
-      <label class="label" data-i18n="q1">&#11088; 1. Are you happy with our service today?</label>
+      <label class="label" data-i18n="q1">&#11088; 1. How satisfied were you with your visit today?</label>
       <div class="stars" id="happyStars" role="radiogroup" aria-label="Happy with service rating"></div>
       <div class="rate-hint" id="happyHint">Tap to rate</div>
     </div>
 
     <div class="field">
-      <label class="label" data-i18n="q2">&#129309; 2. Did we treat you with respect and a smile?</label>
+      <label class="label" data-i18n="q2">&#129309; 2. Did our staff treat you with respect?</label>
       <div class="stars" id="respectStars" role="radiogroup" aria-label="Respect and smile rating"></div>
       <div class="rate-hint" id="respectHint">Tap to rate</div>
     </div>
 
     <div class="field">
       <label class="label" data-i18n="q3">&#9889; 3. Were you served quickly?</label>
-      <div class="chips" id="speedChips" role="radiogroup" aria-label="Service speed"></div>
+      <div class="stars" id="speedStars" role="radiogroup" aria-label="Service speed rating"></div>
+      <div class="rate-hint" id="speedHint">Tap to rate</div>
     </div>
 
     <div class="field">
       <label class="label" data-i18n="q4">&#10084;&#65039; 4. Would you visit us again?</label>
-      <div class="chips" id="visitChips" role="radiogroup" aria-label="Visit again"></div>
+      <div class="stars" id="visitStars" role="radiogroup" aria-label="Visit again rating"></div>
+      <div class="rate-hint" id="visitHint">Tap to rate</div>
+    </div>
+
+
+    <div class="field">
+      <label class="label" data-i18n="q6nps">&#128202; 5. How likely are you to recommend us to your family and friends?</label>
+      <div class="nps" id="npsGrid" role="radiogroup" aria-label="Recommendation likelihood 0 to 10"></div>
+      <div class="rate-hint" data-i18n="npsHint">1 = Not at all likely &middot; 10 = Extremely likely</div>
     </div>
 
     <div class="field">
-      <label class="label" data-i18n="q5">&#128077; 5. Would you recommend us to your family and friends?</label>
-      <div class="chips" id="recommendChips" role="radiogroup" aria-label="Recommend us"></div>
-    </div>
-
-    <div class="field">
-      <label class="label"><span data-i18n="q6">&#128079; 6. Who served you today?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
-      <input type="text" id="staffName" maxlength="60" data-i18n-ph="staffPh" placeholder="Staff member's name" autocomplete="off">
-    </div>
-
-    <div class="field">
-      <label class="label"><span data-i18n="q7">&#128172; 7. How can we improve our service?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
+      <label class="label"><span data-i18n="q6">&#128172; 6. How can we improve our service?</span> <span class="opt" data-i18n="optional">(optional)</span></label>
       <textarea id="improve" maxlength="500" data-i18n-ph="improvePh" placeholder="Your suggestions..."></textarea>
     </div>
 
@@ -353,19 +353,19 @@
 
 </div>
 
-<footer data-i18n="footer">&copy; Bahrain Exchange Company &middot; Kuwait</footer>
+<footer data-i18n="footer">&copy; Al Ansari Exchange &middot; Kuwait</footer>
 
 <script>
 /* ================= CONFIG ================= */
 /* Paste your Apps Script Web App URL here: */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZDJGCX8Wu92c8d2PFTNMcC9tjs_aLomn2OjrD56zkQgPfkB1-mLzk4MEDQ6r6wQCP/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznTignc7J6MtoaJZdlcieti3K3nVP8OqP68vRvJCOsKVgg9Ilh7BQSZHjGUJS9flhAjA/exec";
 /* ========================================== */
 
 /* ---------- Translations ---------- */
 const I18N = {
   en: {
-    title: "Thank you for using BEC",
-    subtitle: "We appreciate your trust in Bahrain Exchange Company.\nPlease take a moment to tell us about your visit.",
+    title: "Thank you for using Al Ansari Exchange",
+    subtitle: "We appreciate your trust in Al Ansari Exchange.\nPlease take a moment to tell us about your visit.",
     branchLabel: "Branch Name",
     branchLoading: "Loading branches...",
     branchSelect: "Select your branch...",
@@ -375,35 +375,32 @@ const I18N = {
     civilPh: "12-digit Civil ID",
     mobileLabel: "\u{1F4F1} Mobile Number",
     mobilePh: "8-digit mobile number",
-    q1: "⭐ 1. Are you happy with our service today?",
-    q2: "\u{1F91D} 2. Did we treat you with respect and a smile?",
+    q1: "⭐ 1. How satisfied were you with your visit today?",
+    q2: "\u{1F91D} 2. Did our staff treat you with respect?",
     q3: "⚡ 3. Were you served quickly?",
     q4: "❤️ 4. Would you visit us again?",
-    q5: "\u{1F44D} 5. Would you recommend us to your family and friends?",
-    q6: "\u{1F44F} 6. Who served you today?",
-    q7: "\u{1F4AC} 7. How can we improve our service?",
-    staffPh: "Staff member's name",
+    q6: "\u{1F4AC} 6. How can we improve our service?",
+    q6nps: "\u{1F4CA} 5. How likely are you to recommend us to your family and friends?",
+    npsHint: "1 = Not at all likely · 10 = Extremely likely",
     optional: "(optional)",
     improvePh: "Your suggestions...",
     tapToRate: "Tap to rate",
     starLabels: ["", "Poor", "Fair", "Good", "Very good", "Excellent"],
-    fast: "\u{1F7E2} Fast", average: "\u{1F7E1} Average", slow: "\u{1F534} Slow",
-    yes: "✅ Yes", maybe: "\u{1F914} Maybe", no: "❌ No",
     submit: "Submit Feedback",
     submitting: "Submitting...",
     errBranch: "Please select your branch.",
     errCivil: "Please enter a valid 12-digit Civil ID number.",
     errMobile: "Please enter a valid 8-digit mobile number.",
-    errStars: "Please rate questions 1 and 2 before submitting.",
-    errChips: "Please answer questions 3, 4 and 5 before submitting.",
+    errStars: "Please rate questions 1 to 4 before submitting.",
+    errNps: "Please answer question 5 before submitting.",
     errSubmit: "Could not submit. Please check your connection and try again.",
     thanks: "Thank you!",
     successMsg: "Your feedback for {branch} has been recorded.\nWe appreciate you taking the time.",
-    footer: "© Bahrain Exchange Company · Kuwait"
+    footer: "© Al Ansari Exchange · Kuwait"
   },
   ar: {
-    title: "شكراً لاستخدامكم BEC",
-    subtitle: "نقدّر ثقتكم بشركة البحرين للصيرفه.\nنرجو منحنا لحظات لإخبارنا عن زيارتكم.",
+    title: "شكراً لاستخدامكم الأنصاري للصرافة",
+    subtitle: "نقدّر ثقتكم بالأنصاري للصرافة.\nنرجو منحنا لحظات لإخبارنا عن زيارتكم.",
     branchLabel: "اسم الفرع",
     branchLoading: "جاري تحميل الفروع...",
     branchSelect: "اختر الفرع...",
@@ -413,35 +410,32 @@ const I18N = {
     civilPh: "الرقم المدني (12 رقماً)",
     mobileLabel: "\u{1F4F1} رقم الهاتف",
     mobilePh: "رقم الهاتف (8 أرقام)",
-    q1: "⭐ 1. هل أنت راضٍ عن خدمتنا اليوم؟",
-    q2: "\u{1F91D} 2. هل تعاملنا معك باحترام وابتسامة؟",
+    q1: "⭐ 1. ما مدى رضاك عن زيارتك اليوم؟",
+    q2: "\u{1F91D} 2. هل عاملك موظفونا باحترام؟",
     q3: "⚡ 3. هل تمت خدمتك بسرعة؟",
     q4: "❤️ 4. هل ستزورنا مرة أخرى؟",
-    q5: "\u{1F44D} 5. هل تنصح عائلتك وأصدقاءك بالتعامل معنا؟",
-    q6: "\u{1F44F} 6. من قام بخدمتك اليوم؟",
-    q7: "\u{1F4AC} 7. كيف يمكننا تحسين خدمتنا؟",
-    staffPh: "اسم الموظف",
+    q6: "\u{1F4AC} 6. كيف يمكننا تحسين خدمتنا؟",
+    q6nps: "\u{1F4CA} 5. ما مدى احتمال أن توصي بنا عائلتك وأصدقاءك؟",
+    npsHint: "1 = غير محتمل إطلاقاً · 10 = محتمل جداً",
     optional: "(اختياري)",
     improvePh: "اقتراحاتكم...",
     tapToRate: "اضغط للتقييم",
     starLabels: ["", "ضعيف", "مقبول", "جيد", "جيد جداً", "ممتاز"],
-    fast: "\u{1F7E2} سريع", average: "\u{1F7E1} متوسط", slow: "\u{1F534} بطيء",
-    yes: "✅ نعم", maybe: "\u{1F914} ربما", no: "❌ لا",
     submit: "إرسال التقييم",
     submitting: "جاري الإرسال...",
     errBranch: "يرجى اختيار الفرع.",
     errCivil: "يرجى إدخال رقم مدني صحيح مكون من 12 رقماً.",
     errMobile: "يرجى إدخال رقم هاتف صحيح مكون من 8 أرقام.",
-    errStars: "يرجى تقييم السؤالين 1 و2 قبل الإرسال.",
-    errChips: "يرجى الإجابة على الأسئلة 3 و4 و5 قبل الإرسال.",
+    errStars: "يرجى تقييم الأسئلة من 1 إلى 4 قبل الإرسال.",
+    errNps: "يرجى الإجابة على السؤال 5 قبل الإرسال.",
     errSubmit: "تعذر الإرسال. يرجى التحقق من الاتصال والمحاولة مرة أخرى.",
     thanks: "شكراً لك!",
     successMsg: "تم تسجيل تقييمكم لفرع {branch}.\nنشكركم على وقتكم.",
-    footer: "شركة البحرين للصرافة · الكويت"
+    footer: "الأنصاري للصرافة · الكويت"
   },
   hi: {
-    title: "BEC का उपयोग करने के लिए धन्यवाद",
-    subtitle: "बहरीन एक्सचेंज कंपनी पर आपके भरोसे के लिए हम आभारी हैं।\nकृपया अपनी यात्रा के बारे में हमें बताने के लिए कुछ क्षण दें।",
+    title: "अल अंसारी एक्सचेंज का उपयोग करने के लिए धन्यवाद",
+    subtitle: "अल अंसारी एक्सचेंज पर आपके भरोसे के लिए हम आभारी हैं।\nकृपया अपनी यात्रा के बारे में हमें बताने के लिए कुछ क्षण दें।",
     branchLabel: "शाखा का नाम",
     branchLoading: "शाखाएँ लोड हो रही हैं...",
     branchSelect: "अपनी शाखा चुनें...",
@@ -451,73 +445,67 @@ const I18N = {
     civilPh: "12 अंकों की सिविल आईडी",
     mobileLabel: "\u{1F4F1} मोबाइल नंबर",
     mobilePh: "8 अंकों का मोबाइल नंबर",
-    q1: "⭐ 1. क्या आप आज हमारी सेवा से खुश हैं?",
-    q2: "\u{1F91D} 2. क्या हमने आपके साथ सम्मान और मुस्कान से व्यवहार किया?",
+    q1: "⭐ 1. आज की अपनी विज़िट से आप कितने संतुष्ट हैं?",
+    q2: "\u{1F91D} 2. क्या हमारे स्टाफ ने आपके साथ सम्मान से व्यवहार किया?",
     q3: "⚡ 3. क्या आपको जल्दी सेवा मिली?",
     q4: "❤️ 4. क्या आप हमारे पास फिर आएँगे?",
-    q5: "\u{1F44D} 5. क्या आप अपने परिवार और दोस्तों को हमारी सिफारिश करेंगे?",
-    q6: "\u{1F44F} 6. आज आपकी सेवा किसने की?",
-    q7: "\u{1F4AC} 7. हम अपनी सेवा कैसे बेहतर बना सकते हैं?",
-    staffPh: "कर्मचारी का नाम",
+    q6: "\u{1F4AC} 6. हम अपनी सेवा कैसे बेहतर बना सकते हैं?",
+    q6nps: "\u{1F4CA} 5. आप हमें अपने परिवार और दोस्तों को सुझाने की कितनी संभावना रखते हैं?",
+    npsHint: "1 = बिल्कुल नहीं · 10 = पूरी संभावना",
     optional: "(वैकल्पिक)",
     improvePh: "आपके सुझाव...",
     tapToRate: "रेट करने के लिए टैप करें",
     starLabels: ["", "खराब", "ठीक-ठाक", "अच्छा", "बहुत अच्छा", "उत्कृष्ट"],
-    fast: "\u{1F7E2} तेज़", average: "\u{1F7E1} सामान्य", slow: "\u{1F534} धीमा",
-    yes: "✅ हाँ", maybe: "\u{1F914} शायद", no: "❌ नहीं",
     submit: "फीडबैक भेजें",
     submitting: "भेजा जा रहा है...",
     errBranch: "कृपया अपनी शाखा चुनें।",
     errCivil: "कृपया 12 अंकों की सही सिविल आईडी दर्ज करें।",
     errMobile: "कृपया 8 अंकों का सही मोबाइल नंबर दर्ज करें।",
-    errStars: "कृपया भेजने से पहले प्रश्न 1 और 2 को रेट करें।",
-    errChips: "कृपया भेजने से पहले प्रश्न 3, 4 और 5 के उत्तर दें।",
+    errStars: "कृपया भेजने से पहले प्रश्न 1 से 4 तक रेट करें।",
+    errNps: "कृपया भेजने से पहले प्रश्न 5 का उत्तर दें।",
     errSubmit: "भेजा नहीं जा सका। कृपया कनेक्शन जाँचें और पुनः प्रयास करें।",
     thanks: "धन्यवाद!",
     successMsg: "{branch} शाखा के लिए आपका फीडबैक दर्ज कर लिया गया है।\nसमय देने के लिए धन्यवाद।",
-    footer: "© बहरीन एक्सचेंज कंपनी · कुवैत"
+    footer: "© अल अंसारी एक्सचेंज · कुवैत"
   },
   bn: {
-    title: "BEC ব্যবহার করার জন্য ধন্যবাদ",
-    subtitle: "বাহরাইন এক্সচেঞ্জ কোম্পানির প্রতি আপনার আস্থার জন্য আমরা কৃতজ্ঞ।\nঅনুগ্রহ করে আপনার ভিজিট সম্পর্কে আমাদের জানাতে কিছুটা সময় দিন।",
+    title: "আল আনসারি এক্সচেঞ্জ ব্যবহার করার জন্য ধন্যবাদ",
+    subtitle: "আল আনসারি এক্সচেঞ্জের প্রতি আপনার আস্থার জন্য আমরা কৃতজ্ঞ।\nঅনুগ্রহ করে আপনার ভিজিট সম্পর্কে আমাদের জানাতে কিছুটা সময় দিন।",
     branchLabel: "শাখার নাম",
     branchLoading: "শাখা লোড হচ্ছে...",
     branchSelect: "আপনার শাখা নির্বাচন করুন...",
     branchNone: "কোনো শাখা নেই",
     branchError: "শাখা লোড করা যায়নি - পেজ রিলোড করুন",
     civilLabel: "\u{1F464} সিভিল আইডি নম্বর",
-    civilPh: "১২ সংখ্যার সিভিল আইডি",
+    civilPh: "12 সংখ্যার সিভিল আইডি",
     mobileLabel: "\u{1F4F1} মোবাইল নম্বর",
-    mobilePh: "৮ সংখ্যার মোবাইল নম্বর",
-    q1: "⭐ 1. আপনি কি আজ আমাদের সেবায় সন্তুষ্ট?",
-    q2: "\u{1F91D} 2. আমরা কি আপনার সাথে সম্মান ও হাসিমুখে আচরণ করেছি?",
+    mobilePh: "8 সংখ্যার মোবাইল নম্বর",
+    q1: "⭐ 1. আজকের ভিজিট নিয়ে আপনি কতটা সন্তুষ্ট?",
+    q2: "\u{1F91D} 2. আমাদের কর্মীরা কি আপনার সাথে সম্মানের সাথে আচরণ করেছেন?",
     q3: "⚡ 3. আপনি কি দ্রুত সেবা পেয়েছেন?",
     q4: "❤️ 4. আপনি কি আবার আমাদের কাছে আসবেন?",
-    q5: "\u{1F44D} 5. আপনি কি পরিবার ও বন্ধুদের আমাদের কথা বলবেন?",
-    q6: "\u{1F44F} 6. আজ কে আপনাকে সেবা দিয়েছেন?",
-    q7: "\u{1F4AC} 7. আমরা কীভাবে আমাদের সেবা আরও ভালো করতে পারি?",
-    staffPh: "কর্মীর নাম",
+    q6: "\u{1F4AC} 6. আমরা কীভাবে আমাদের সেবা আরও ভালো করতে পারি?",
+    q6nps: "\u{1F4CA} 5. আপনি আপনার পরিবার ও বন্ধুদের আমাদের সুপারিশ করার সম্ভাবনা কতটা?",
+    npsHint: "1 = একেবারেই না · 10 = খুবই সম্ভব",
     optional: "(ঐচ্ছিক)",
     improvePh: "আপনার পরামর্শ...",
     tapToRate: "রেট করতে ট্যাপ করুন",
     starLabels: ["", "খারাপ", "মোটামুটি", "ভালো", "খুব ভালো", "চমৎকার"],
-    fast: "\u{1F7E2} দ্রুত", average: "\u{1F7E1} মাঝারি", slow: "\u{1F534} ধীর",
-    yes: "✅ হ্যাঁ", maybe: "\u{1F914} হয়তো", no: "❌ না",
     submit: "ফিডব্যাক পাঠান",
     submitting: "পাঠানো হচ্ছে...",
     errBranch: "অনুগ্রহ করে আপনার শাখা নির্বাচন করুন।",
     errCivil: "অনুগ্রহ করে 12 সংখ্যার সঠিক সিভিল আইডি দিন।",
     errMobile: "অনুগ্রহ করে 8 সংখ্যার সঠিক মোবাইল নম্বর দিন।",
-    errStars: "পাঠানোর আগে প্রশ্ন 1 ও 2 রেট করুন।",
-    errChips: "পাঠানোর আগে প্রশ্ন 3, 4 ও 5 এর উত্তর দিন।",
+    errStars: "পাঠানোর আগে প্রশ্ন 1 থেকে 4 রেট করুন।",
+    errNps: "পাঠানোর আগে প্রশ্ন 5 এর উত্তর দিন।",
     errSubmit: "পাঠানো যায়নি। সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।",
     thanks: "ধন্যবাদ!",
     successMsg: "{branch} শাখার জন্য আপনার ফিডব্যাক সংরক্ষণ করা হয়েছে।\nসময় দেওয়ার জন্য ধন্যবাদ।",
-    footer: "© বাহরাইন এক্সচেঞ্জ কোম্পানি · কুয়েত"
+    footer: "© আল আনসারি এক্সচেঞ্জ · কুয়েত"
   },
   si: {
-    title: "BEC භාවිතා කිරීම ගැන ස්තූතියි",
-    subtitle: "බහරේන් එක්ස්චේන්ජ් සමාගම කෙරෙහි ඔබ තැබූ විශ්වාසයට අපි කෘතඥ වෙමු.\nඔබගේ පැමිණීම ගැන අපට කියන්න මොහොතක් ගන්න.",
+    title: "අල් අන්සාරි එක්ස්චේන්ජ් භාවිතා කිරීම ගැන ස්තූතියි",
+    subtitle: "අල් අන්සාරි එක්ස්චේන්ජ් කෙරෙහි ඔබ තැබූ විශ්වාසයට අපි කෘතඥ වෙමු.\nඔබගේ පැමිණීම ගැන අපට කියන්න මොහොතක් ගන්න.",
     branchLabel: "ශාඛාවේ නම",
     branchLoading: "ශාඛා පූරණය වෙමින්...",
     branchSelect: "ඔබේ ශාඛාව තෝරන්න...",
@@ -527,33 +515,37 @@ const I18N = {
     civilPh: "ඉලක්කම් 12ක සිවිල් හැඳුනුම්පත",
     mobileLabel: "\u{1F4F1} ජංගම දුරකථන අංකය",
     mobilePh: "ඉලක්කම් 8ක ජංගම අංකය",
-    q1: "⭐ 1. අද අපේ සේවාව ගැන ඔබ සතුටුද?",
-    q2: "\u{1F91D} 2. අපි ඔබට ගෞරවයෙන් සහ සිනහවෙන් සැලකුවාද?",
+    q1: "⭐ 1. අද ඔබේ පැමිණීම ගැන ඔබ කොතරම් සෑහීමකට පත්ද?",
+    q2: "\u{1F91D} 2. අපේ කාර්ය මණ්ඩලය ඔබට ගෞරවයෙන් සැලකුවාද?",
     q3: "⚡ 3. ඔබට ඉක්මනින් සේවාව ලැබුණාද?",
     q4: "❤️ 4. ඔබ නැවත අප වෙත එනවාද?",
-    q5: "\u{1F44D} 5. ඔබේ පවුලේ අයට සහ මිතුරන්ට අපව නිර්දේශ කරනවාද?",
-    q6: "\u{1F44F} 6. අද ඔබට සේවය කළේ කවුද?",
-    q7: "\u{1F4AC} 7. අපේ සේවාව වැඩිදියුණු කරන්නේ කෙසේද?",
-    staffPh: "සේවකයාගේ නම",
+    q6: "\u{1F4AC} 6. අපේ සේවාව වැඩිදියුණු කරන්නේ කෙසේද?",
+    q6nps: "\u{1F4CA} 5. ඔබේ පවුලේ අයට සහ මිතුරන්ට අපව නිර්දේශ කිරීමට ඔබ කොතරම් ඉඩ තිබේද?",
+    npsHint: "1 = කිසිසේත් නැත · 10 = ඉතා ඉඩ ඇත",
     optional: "(අත්‍යවශ්‍ය නොවේ)",
     improvePh: "ඔබේ යෝජනා...",
     tapToRate: "ඇගයීමට තට්ටු කරන්න",
     starLabels: ["", "දුර්වලයි", "සාමාන්‍යයි", "හොඳයි", "ඉතා හොඳයි", "විශිෂ්ටයි"],
-    fast: "\u{1F7E2} වේගවත්", average: "\u{1F7E1} සාමාන්‍ය", slow: "\u{1F534} මන්දගාමී",
-    yes: "✅ ඔව්", maybe: "\u{1F914} සමහරවිට", no: "❌ නැහැ",
     submit: "ප්‍රතිචාරය යවන්න",
     submitting: "යවමින්...",
     errBranch: "කරුණාකර ඔබේ ශාඛාව තෝරන්න.",
     errCivil: "කරුණාකර ඉලක්කම් 12ක නිවැරදි සිවිල් හැඳුනුම්පත් අංකය ඇතුළත් කරන්න.",
     errMobile: "කරුණාකර ඉලක්කම් 8ක නිවැරදි ජංගම අංකය ඇතුළත් කරන්න.",
-    errStars: "යැවීමට පෙර ප්‍රශ්න 1 සහ 2 අගයන්න.",
-    errChips: "යැවීමට පෙර ප්‍රශ්න 3, 4 සහ 5 ට පිළිතුරු දෙන්න.",
+    errStars: "යැවීමට පෙර ප්‍රශ්න 1 සිට 4 දක්වා අගයන්න.",
+    errNps: "යැවීමට පෙර ප්‍රශ්න 5 ට පිළිතුරු දෙන්න.",
     errSubmit: "යැවිය නොහැක. සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.",
     thanks: "ස්තූතියි!",
     successMsg: "{branch} ශාඛාව සඳහා ඔබේ ප්‍රතිචාරය සටහන් විය.\nකාලය ගත කිරීම ගැන ස්තූතියි.",
-    footer: "© බහරේන් එක්ස්චේන්ජ් සමාගම · කුවේට්"
+    footer: "© අල් අන්සාරි එක්ස්චේන්ජ් · කුවේට්"
   }
 };
+
+/* Visitor IP (best-effort; blank if the lookup fails or is blocked) */
+let visitorIp = "";
+fetch("https://api.ipify.org?format=json")
+  .then(r => r.json())
+  .then(d => { visitorIp = (d && d.ip) || ""; })
+  .catch(() => { visitorIp = ""; });
 
 const params = new URLSearchParams(location.search);
 let lang = ["ar","hi","bn","si"].includes(params.get("lang")) ? params.get("lang") : "en";
@@ -608,10 +600,12 @@ if(paramBranch){
 }
 
 /* ---------- Star ratings ---------- */
-const state = { happy: 0, respect: 0 };
+const state = { happy: 0, respect: 0, speed: 0, visit: 0 };
 const starMeta = {
   happy: {box: "happyStars", hint: "happyHint"},
-  respect: {box: "respectStars", hint: "respectHint"}
+  respect: {box: "respectStars", hint: "respectHint"},
+  speed: {box: "speedStars", hint: "speedHint"},
+  visit: {box: "visitStars", hint: "visitHint"}
 };
 
 function updateHint(key){
@@ -644,38 +638,23 @@ function buildStars(key){
 }
 buildStars("happy");
 buildStars("respect");
+buildStars("speed");
+buildStars("visit");
 
-/* ---------- Choice chips (points: best 5, middle 3, worst 1) ---------- */
-const choices = { speed: 0, visit: 0, recommend: 0 };
-const chipMeta = {
-  speed: {box: "speedChips", options: [ {key:"fast", value:5}, {key:"average", value:3}, {key:"slow", value:1} ]},
-  visit: {box: "visitChips", options: [ {key:"yes", value:5}, {key:"maybe", value:3}, {key:"no", value:1} ]},
-  recommend: {box: "recommendChips", options: [ {key:"yes", value:5}, {key:"maybe", value:3}, {key:"no", value:1} ]}
-};
-
-function buildChips(key){
-  const meta = chipMeta[key];
-  const box = document.getElementById(meta.box);
-  meta.options.forEach(opt => {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.textContent = t(opt.key);
-    b.dataset.k = opt.key;
-    b.setAttribute("role","radio");
-    b.addEventListener("click", () => {
-      choices[key] = opt.value;
-      [...box.children].forEach(el => el.classList.toggle("on", el === b));
-    });
-    box.appendChild(b);
+/* ---------- NPS 0-10 ---------- */
+let npsValue = -1;
+const npsGrid = document.getElementById("npsGrid");
+for(let i = 1; i <= 10; i++){
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = i;
+  b.setAttribute("role","radio");
+  b.setAttribute("aria-label", "Score " + i);
+  b.addEventListener("click", () => {
+    npsValue = i;
+    [...npsGrid.children].forEach(el => el.classList.toggle("on", el === b));
   });
-}
-Object.keys(chipMeta).forEach(buildChips);
-
-function relabelChips(){
-  Object.keys(chipMeta).forEach(key => {
-    const box = document.getElementById(chipMeta[key].box);
-    [...box.children].forEach(el => { el.textContent = t(el.dataset.k); });
-  });
+  npsGrid.appendChild(b);
 }
 
 /* ---------- Language switching ---------- */
@@ -711,9 +690,10 @@ function applyLang(){
   });
 
   renderBranchSelect();
-  relabelChips();
   updateHint("happy");
   updateHint("respect");
+  updateHint("speed");
+  updateHint("visit");
   if(!btn.disabled) btn.textContent = t("submit");
   err.textContent = "";
 }
@@ -751,12 +731,12 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  if(!state.happy || !state.respect){
+  if(!state.happy || !state.respect || !state.speed || !state.visit){
     err.textContent = t("errStars");
     return;
   }
-  if(!choices.speed || !choices.visit || !choices.recommend){
-    err.textContent = t("errChips");
+  if(npsValue < 1){
+    err.textContent = t("errNps");
     return;
   }
 
@@ -776,11 +756,11 @@ form.addEventListener("submit", async (e) => {
     mobile: mobile,
     happy: state.happy,
     respect: state.respect,
-    speed: choices.speed,
-    visitAgain: choices.visit,
-    recommend: choices.recommend,
+    speed: state.speed,
+    visitAgain: state.visit,
+    nps: npsValue,
     improve: document.getElementById("improve").value.trim(),
-    staffName: document.getElementById("staffName").value.trim()
+    ip: visitorIp
   };
 
   try{
