@@ -121,6 +121,31 @@
     color:var(--blue-deep);
   }
   .branch-box .pin{color:var(--blue);font-size:18px;}
+  .idtoggle{
+    display:flex;
+    gap:8px;
+    margin-bottom:9px;
+  }
+  .idtoggle button{
+    flex:1;
+    padding:10px 6px;
+    border:1.5px solid var(--line);
+    border-radius:9px;
+    background:#fff;
+    font:inherit;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--muted);
+    cursor:pointer;
+    transition:border-color .12s ease,background .12s ease,color .12s ease;
+  }
+  .idtoggle button.on{
+    border-color:var(--blue);
+    background:var(--blue-tint);
+    color:var(--blue-deep);
+  }
+  .idtoggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  input.upper{text-transform:uppercase;letter-spacing:.6px;}
   input[type=tel],input[type=text]{
     width:100%;
     border:1.5px solid var(--line);
@@ -295,8 +320,12 @@
     </div>
 
     <div class="field">
-      <label class="label"><span data-i18n="civilLabel">&#128100; Civil ID Number</span> <span class="req">*</span></label>
-      <input type="tel" id="civilId" inputmode="numeric" maxlength="12" data-i18n-ph="civilPh" placeholder="12-digit Civil ID" autocomplete="off">
+      <label class="label"><span id="idLabel">&#128100; Civil ID Number</span> <span class="req">*</span></label>
+      <div class="idtoggle" id="idToggle" role="radiogroup" aria-label="ID type">
+        <button type="button" data-k="civil" class="on">Civil ID</button>
+        <button type="button" data-k="passport">Passport</button>
+      </div>
+      <input type="tel" id="civilId" inputmode="numeric" maxlength="12" placeholder="12-digit Civil ID" autocomplete="off">
     </div>
 
     <div class="field">
@@ -373,6 +402,10 @@ const I18N = {
     branchError: "Could not load branches - reload page",
     civilLabel: "\u{1F464} Civil ID Number",
     civilPh: "12-digit Civil ID",
+    idCivil: "Civil ID",
+    idPassport: "Passport",
+    passportLabel: "\u{1F6C2} Passport Number",
+    passportPh: "Passport number",
     mobileLabel: "\u{1F4F1} Mobile Number",
     mobilePh: "8-digit mobile number",
     q1: "⭐ 1. Are you happy with our service today?",
@@ -393,6 +426,7 @@ const I18N = {
     submitting: "Submitting...",
     errBranch: "Please select your branch.",
     errCivil: "Please enter a valid 12-digit Civil ID number.",
+    errPassport: "Please enter a valid passport number (6-12 letters or numbers).",
     errMobile: "Please enter a valid 8-digit mobile number.",
     errStars: "Please rate questions 1 and 2 before submitting.",
     errChips: "Please answer questions 3, 4 and 5 before submitting.",
@@ -411,6 +445,10 @@ const I18N = {
     branchError: "تعذر تحميل الفروع - أعد تحميل الصفحة",
     civilLabel: "\u{1F464} الرقم المدني",
     civilPh: "الرقم المدني (12 رقماً)",
+    idCivil: "الرقم المدني",
+    idPassport: "جواز السفر",
+    passportLabel: "\u{1F6C2} رقم جواز السفر",
+    passportPh: "رقم جواز السفر",
     mobileLabel: "\u{1F4F1} رقم الهاتف",
     mobilePh: "رقم الهاتف (8 أرقام)",
     q1: "⭐ 1. هل أنت راضٍ عن خدمتنا اليوم؟",
@@ -431,6 +469,7 @@ const I18N = {
     submitting: "جاري الإرسال...",
     errBranch: "يرجى اختيار الفرع.",
     errCivil: "يرجى إدخال رقم مدني صحيح مكون من 12 رقماً.",
+    errPassport: "يرجى إدخال رقم جواز سفر صحيح (من 6 إلى 12 حرفاً أو رقماً).",
     errMobile: "يرجى إدخال رقم هاتف صحيح مكون من 8 أرقام.",
     errStars: "يرجى تقييم السؤالين 1 و2 قبل الإرسال.",
     errChips: "يرجى الإجابة على الأسئلة 3 و4 و5 قبل الإرسال.",
@@ -449,6 +488,10 @@ const I18N = {
     branchError: "शाखाएँ लोड नहीं हो सकीं - पेज पुनः लोड करें",
     civilLabel: "\u{1F464} सिविल आईडी नंबर",
     civilPh: "12 अंकों की सिविल आईडी",
+    idCivil: "सिविल आईडी",
+    idPassport: "पासपोर्ट",
+    passportLabel: "\u{1F6C2} पासपोर्ट नंबर",
+    passportPh: "पासपोर्ट नंबर",
     mobileLabel: "\u{1F4F1} मोबाइल नंबर",
     mobilePh: "8 अंकों का मोबाइल नंबर",
     q1: "⭐ 1. क्या आप आज हमारी सेवा से खुश हैं?",
@@ -469,6 +512,7 @@ const I18N = {
     submitting: "भेजा जा रहा है...",
     errBranch: "कृपया अपनी शाखा चुनें।",
     errCivil: "कृपया 12 अंकों की सही सिविल आईडी दर्ज करें।",
+    errPassport: "कृपया सही पासपोर्ट नंबर दर्ज करें (6-12 अक्षर या अंक)।",
     errMobile: "कृपया 8 अंकों का सही मोबाइल नंबर दर्ज करें।",
     errStars: "कृपया भेजने से पहले प्रश्न 1 और 2 को रेट करें।",
     errChips: "कृपया भेजने से पहले प्रश्न 3, 4 और 5 के उत्तर दें।",
@@ -487,6 +531,10 @@ const I18N = {
     branchError: "শাখা লোড করা যায়নি - পেজ রিলোড করুন",
     civilLabel: "\u{1F464} সিভিল আইডি নম্বর",
     civilPh: "১২ সংখ্যার সিভিল আইডি",
+    idCivil: "সিভিল আইডি",
+    idPassport: "পাসপোর্ট",
+    passportLabel: "\u{1F6C2} পাসপোর্ট নম্বর",
+    passportPh: "পাসপোর্ট নম্বর",
     mobileLabel: "\u{1F4F1} মোবাইল নম্বর",
     mobilePh: "৮ সংখ্যার মোবাইল নম্বর",
     q1: "⭐ 1. আপনি কি আজ আমাদের সেবায় সন্তুষ্ট?",
@@ -507,6 +555,7 @@ const I18N = {
     submitting: "পাঠানো হচ্ছে...",
     errBranch: "অনুগ্রহ করে আপনার শাখা নির্বাচন করুন।",
     errCivil: "অনুগ্রহ করে 12 সংখ্যার সঠিক সিভিল আইডি দিন।",
+    errPassport: "অনুগ্রহ করে সঠিক পাসপোর্ট নম্বর দিন (6-12 অক্ষর বা সংখ্যা)।",
     errMobile: "অনুগ্রহ করে 8 সংখ্যার সঠিক মোবাইল নম্বর দিন।",
     errStars: "পাঠানোর আগে প্রশ্ন 1 ও 2 রেট করুন।",
     errChips: "পাঠানোর আগে প্রশ্ন 3, 4 ও 5 এর উত্তর দিন।",
@@ -525,6 +574,10 @@ const I18N = {
     branchError: "ශාඛා පූරණය කළ නොහැක - පිටුව නැවත පූරණය කරන්න",
     civilLabel: "\u{1F464} සිවිල් හැඳුනුම්පත් අංකය",
     civilPh: "ඉලක්කම් 12ක සිවිල් හැඳුනුම්පත",
+    idCivil: "සිවිල් හැඳුනුම්පත",
+    idPassport: "ගමන් බලපත්‍රය",
+    passportLabel: "\u{1F6C2} ගමන් බලපත්‍ර අංකය",
+    passportPh: "ගමන් බලපත්‍ර අංකය",
     mobileLabel: "\u{1F4F1} ජංගම දුරකථන අංකය",
     mobilePh: "ඉලක්කම් 8ක ජංගම අංකය",
     q1: "⭐ 1. අද අපේ සේවාව ගැන ඔබ සතුටුද?",
@@ -545,6 +598,7 @@ const I18N = {
     submitting: "යවමින්...",
     errBranch: "කරුණාකර ඔබේ ශාඛාව තෝරන්න.",
     errCivil: "කරුණාකර ඉලක්කම් 12ක නිවැරදි සිවිල් හැඳුනුම්පත් අංකය ඇතුළත් කරන්න.",
+    errPassport: "කරුණාකර නිවැරදි ගමන් බලපත්‍ර අංකයක් ඇතුළත් කරන්න (අකුරු/ඉලක්කම් 6-12).",
     errMobile: "කරුණාකර ඉලක්කම් 8ක නිවැරදි ජංගම අංකය ඇතුළත් කරන්න.",
     errStars: "යැවීමට පෙර ප්‍රශ්න 1 සහ 2 අගයන්න.",
     errChips: "යැවීමට පෙර ප්‍රශ්න 3, 4 සහ 5 ට පිළිතුරු දෙන්න.",
@@ -613,6 +667,56 @@ if(paramBranch){
       renderBranchSelect();
     });
 }
+
+/* ---------- ID type toggle (Civil ID / Passport) ---------- */
+let idType = "civil";
+const idToggle = document.getElementById("idToggle");
+const idInput = document.getElementById("civilId");
+const idLabel = document.getElementById("idLabel");
+
+function applyIdType(clearField){
+  if(clearField) idInput.value = "";
+  [...idToggle.children].forEach(el => {
+    el.classList.toggle("on", el.dataset.k === idType);
+    el.textContent = t(el.dataset.k === "civil" ? "idCivil" : "idPassport");
+    el.setAttribute("aria-checked", el.dataset.k === idType);
+  });
+  if(idType === "civil"){
+    idLabel.textContent = t("civilLabel");
+    idInput.type = "tel";
+    idInput.setAttribute("inputmode","numeric");
+    idInput.placeholder = t("civilPh");
+    idInput.maxLength = 12;
+    idInput.classList.remove("upper");
+  }else{
+    idLabel.textContent = t("passportLabel");
+    idInput.type = "text";
+    idInput.setAttribute("inputmode","text");
+    idInput.placeholder = t("passportPh");
+    idInput.maxLength = 12;
+    idInput.classList.add("upper");
+  }
+}
+
+[...idToggle.children].forEach(el => {
+  el.setAttribute("role","radio");
+  el.addEventListener("click", () => {
+    if(idType === el.dataset.k) return;
+    idType = el.dataset.k;
+    applyIdType(true);
+    err.textContent = "";
+  });
+});
+
+idInput.addEventListener("input", () => {
+  if(idType !== "passport") return;
+  const clean = idInput.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if(clean !== idInput.value){
+    const pos = idInput.selectionStart;
+    idInput.value = clean;
+    try{ idInput.setSelectionRange(pos, pos); }catch(ex){}
+  }
+});
 
 /* ---------- Star ratings ---------- */
 const state = { happy: 0, respect: 0 };
@@ -719,6 +823,7 @@ function applyLang(){
 
   renderBranchSelect();
   relabelChips();
+  applyIdType(false);
   updateHint("happy");
   updateHint("respect");
   if(!btn.disabled) btn.textContent = t("submit");
@@ -746,10 +851,17 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  const civilId = document.getElementById("civilId").value.trim();
-  if(!/^\d{12}$/.test(civilId)){
-    err.textContent = t("errCivil");
-    return;
+  const civilId = idInput.value.trim().toUpperCase();
+  if(idType === "civil"){
+    if(!/^\d{12}$/.test(civilId)){
+      err.textContent = t("errCivil");
+      return;
+    }
+  }else{
+    if(!/^[A-Z0-9]{6,12}$/.test(civilId)){
+      err.textContent = t("errPassport");
+      return;
+    }
   }
 
   const mobile = document.getElementById("mobile").value.trim();
